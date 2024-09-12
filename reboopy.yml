@@ -5,7 +5,14 @@
   gather_facts: false
   connection: local
 
-  tasks:  
+  tasks:
+
+  - name: "List Dir"
+    shell: "ls -l"
+    register: command_dir
+
+  - debug:
+      var: command_dir
 
   - name: "Activate Venv"
     shell: "source /{{dir}}/venv/bin/activate"
