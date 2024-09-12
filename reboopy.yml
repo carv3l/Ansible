@@ -1,0 +1,30 @@
+---
+- hosts: rasbperrypi
+  vars:
+    dir: "CabovisaoReboopy"
+  gather_facts: false
+  connection: local
+
+  tasks:  
+  
+  - name: "Activate Venv"
+    shell: "source /{{dir}}/venv/bin/activate"
+    register: command_venv
+
+  - debug:
+      var: command_venv
+
+  - name: "Execute Script"
+    shell: "python /{{dir}}/scripty.py n"
+    register: command_script
+
+  - debug:
+      var: command_script
+
+
+  # - name: Pause
+  #   ansible.builtin.pause:
+  #     prompt: "{{status_action}}"
+  #     seconds: "{{ test_index }}"
+
+
