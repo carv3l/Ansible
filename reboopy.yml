@@ -1,12 +1,12 @@
 ---
-- hosts: rasbperrypi
+- hosts: raspberrypi
   vars:
     dir: "CabovisaoReboopy"
   gather_facts: false
   connection: local
 
   tasks:  
-  
+
   - name: "Activate Venv"
     shell: "source /{{dir}}/venv/bin/activate"
     register: command_venv
